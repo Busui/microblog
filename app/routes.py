@@ -5,4 +5,4 @@ from app import app
 @app.route("/")
 def index():
     user = {"username": "lovekernel"}
-    return render_template("index.html", title = "Home page", user = user)
+    return render_template("index.html", user = user)
