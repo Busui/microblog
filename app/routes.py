@@ -6,6 +6,7 @@ from app.models import User
 from flask import request
 from werkzeug.urls import url_parse
 from app import db
+from datetime import datetime
 
 
 
@@ -68,3 +69,8 @@ def user(username):
     ]
     return render_template('user.html', user=user, posts = posts)
 
+@app.before_request
+def before_request():
+    if current_user.is_authenticated:
+        current_user.last_seen = datetime.utcnow()
+        db.session.commit()
