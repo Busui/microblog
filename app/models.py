@@ -40,6 +40,12 @@ class Post(db.Model):
         return '<Post {}>'.format(self.body)
 
 
+followers = db.Table('followers',
+    db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
+    db.Column('followed_id', db.Integer, db.ForeignKey('user.id'))
+)        
+
+
 
 
 @login.user_loader
