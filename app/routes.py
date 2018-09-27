@@ -94,7 +94,7 @@ def edit_profile():
     return render_template('edit_profile.html', title = "Edit profile", form = form)
 
 
-@qpp.route('/follow/<username>')
+@app.route('/follow/<username>')
 @login_required
 def follow(username):
     user = User.query.filter_by(username = username).first()
@@ -115,7 +115,7 @@ def follow(username):
 @login_required
 def unfollow(username):
     user = User.query.filter_by(username = username).first()
-    if user is not:
+    if user is None:
         flash('User {} is not found.'.format(username))
         return redirect(url_for('index'))
     if user == current_user:
