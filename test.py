@@ -82,7 +82,7 @@ class UserModelCase(unittest.TestCase):
         f4 = u4.followed_posts().all()
         self.assertEqual(f1, [p2, p4, p1])
         self.assertEqual(f2, [p2, p3, p4])
-        self.assertEqual(f3, [p1, p4])
+        self.assertEqual(f3, [p3, p4])
         self.assertEqual(f4, [p4])
 
 
