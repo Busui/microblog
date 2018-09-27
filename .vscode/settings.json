@@ -5,7 +5,7 @@
     "python.linting.enabled": true,
     "python.linting.pep8Enabled": true,
     "python.linting.pep8Args": [
-        "--ignore=E501,W391,E251,W292,E303,E402,E128,W291",
+        "--ignore=E123,E131,E126,E501,W391,E251,W292,E303,E402,E128,W291",
         "--max-line-length=160"
     ]
 }
