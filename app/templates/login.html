@@ -5,6 +5,11 @@
     <p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p>
     <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
+        <p>
+            Forgot your Password?<a href="{{ url_for('reset_password_request') }}">
+                Click to Reset It
+            </a>
+        </p>
         <P>
             {{ form.username.label }}<br>
             {{ form.username(size=32) }}<br>
