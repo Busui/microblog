@@ -7,7 +7,7 @@ from flask import request
 from werkzeug.urls import url_parse
 from app import db
 from datetime import datetime
-from app.email import send_password_reset_email
+from app.email import send_password_reset_mail
 
 
 
@@ -162,9 +162,9 @@ def reset_password_request():
         return redirect(url_for('index'))
     form = ResetPasswordRequestForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(email = form.data.email).first()
+        user = User.query.filter_by(email = form.email.data).first()
         if user:
-            send_password_reset_email(user)
+            send_password_reset_mail(user)
         flash('Check your email for the instructions to reset your password')
         return redirect(url_for('login'))
     return render_template('reset_password_request.html', 
