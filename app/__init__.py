@@ -20,6 +20,7 @@ migrate = Migrate(app, db)
 
 login = LoginManager(app)
 login.login_view = 'login'
+login.login_message = _l('Please log in to access this page.')
 
 mail = Mail(app)
 bootstrap = Bootstrap(app)
