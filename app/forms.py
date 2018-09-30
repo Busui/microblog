@@ -5,6 +5,7 @@ from wtforms.validators import DataRequired
 from wtforms.validators import ValidationError, Email, EqualTo, Length
 from app.models import User
 from flask_babel import lazy_gettext as _l
+from flask_babel import _
 
 
 class LoginForm(FlaskForm):
