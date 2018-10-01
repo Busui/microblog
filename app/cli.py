@@ -5,7 +5,7 @@ import click
 
 @app.cli.group()
 def translate():
-    """Translate and localization commands.""""
+    """Translate and localization commands."""
     pass
 
 
@@ -14,7 +14,7 @@ def update():
     """Update all languages."""
     if os.system('pybabel extract -F babel.cfg -k _l -o messages.pot .'):
         raise RuntimeError('Extract command faild')
-    if os.system('pybabel update -i messages.pot -d app/translates'):
+    if os.system('pybabel update -i messages.pot -d app/translations'):
         raise RuntimeError('update command faild.')
     os.remove('messages.pot')
 
@@ -32,7 +32,6 @@ def init(lang):
     """Initilize a new language."""
     if os.system('pybabel extract -F babel.cfg -k _l -o messages.pot .'):
         raise RuntimeError('Extract command failed')
-    if os.system(
-        'pytabel init -i messages.pot -d app/translates -l' + lang):
+    if os.system('pytabel init -i messages.pot -d app/translates -l' + lang):
         raise RuntimeError('init command faild')
     os.remove('messages.pot')
