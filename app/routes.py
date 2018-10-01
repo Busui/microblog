@@ -1,4 +1,4 @@
-from flask import render_template, flash, redirect, url_for, get_flashed_messages
+from flask import render_template, flash, redirect, url_for, get_flashed_messages, g
 from app import app
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, PostForm, ResetPasswordRequestForm, ResetPasswordForm
 from flask_login import current_user, login_user, logout_user, login_required
@@ -8,7 +8,7 @@ from werkzeug.urls import url_parse
 from app import db
 from datetime import datetime
 from app.email import send_password_reset_mail
-from flask_babel import _
+from flask_babel import _, get_locale
 
 
 
@@ -112,6 +112,10 @@ def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
+    if str(get_locale()) == 'zh':
+        g.locale = 'zh-cn'
+    else:
+        g.locale = str(get_locale())
 
 
 
