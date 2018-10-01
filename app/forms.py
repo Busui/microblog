@@ -9,20 +9,20 @@ from flask_babel import _
 
 
 class LoginForm(FlaskForm):
-    username = StringField(_('Username'), validators=[DataRequired()])
-    password = PasswordField(_('Password'), validators=[DataRequired()])
-    remember_me = BooleanField(_('Remember Me'))
-    submit = SubmitField(_('Sign In'))
+    username = StringField(_l('Username'), validators=[DataRequired()])
+    password = PasswordField(_l('Password'), validators=[DataRequired()])
+    remember_me = BooleanField(_l('Remember Me'))
+    submit = SubmitField(_l('Sign In'))
 
 
 class RegistrationForm(FlaskForm):
-    username = StringField(_('Username'), validators=[DataRequired()])
-    email = StringField(_('Email'), validators=[DataRequired(), Email()])
-    password = PasswordField(_('Password'), validators=[DataRequired()])
+    username = StringField(_l('Username'), validators=[DataRequired()])
+    email = StringField(_l('Email'), validators=[DataRequired(), Email()])
+    password = PasswordField(_l('Password'), validators=[DataRequired()])
     password2 = PasswordField(
-        _('Repeat Password'), validators=[DataRequired(), EqualTo('password')]
+        _l('Repeat Password'), validators=[DataRequired(), EqualTo('password')]
     )
-    submit = SubmitField(_("Register"))
+    submit = SubmitField(_l("Register"))
 
     def validate_username(self, username):
         user = User.query.filter_by(username=username.data).first()
@@ -36,9 +36,9 @@ class RegistrationForm(FlaskForm):
 
 
 class EditProfileForm(FlaskForm):
-    username = StringField(_('Username'), validators=[DataRequired()])
-    about_me = TextAreaField(_('About me'), validators=[Length(min=0, max=140)])
-    submit = SubmitField(_('Submit'))
+    username = StringField(_l('Username'), validators=[DataRequired()])
+    about_me = TextAreaField(_l('About me'), validators=[Length(min=0, max=140)])
+    submit = SubmitField(_l('Submit'))
 
     def __init__(self, original_username, *args, **kwargs):
         super(EditProfileForm, self).__init__(*args, **kwargs)
@@ -52,20 +52,20 @@ class EditProfileForm(FlaskForm):
 
 
 class PostForm(FlaskForm):
-    post = TextAreaField(_('Say something'), validators=[
+    post = TextAreaField(_l('Say something'), validators=[
         DataRequired(), Length(min = 1, max = 140)
     ])
-    submit = SubmitField(_('Submit'))
+    submit = SubmitField(_l('Submit'))
 
 
 class ResetPasswordRequestForm(FlaskForm):
-    email = StringField(_('Email'), validators=[DataRequired(), Email()])
-    submit = SubmitField(_('Request Password Reset'))
+    email = StringField(_l('Email'), validators=[DataRequired(), Email()])
+    submit = SubmitField(_l('Request Password Reset'))
 
 
 class ResetPasswordForm(FlaskForm):
-    password = PasswordField(_('Password'), validators=[DataRequired()])
+    password = PasswordField(_l('Password'), validators=[DataRequired()])
     password2 = PasswordField(
-        _('Repeat Password'), validators=[DataRequired(), EqualTo('password')]
+        _l('Repeat Password'), validators=[DataRequired(), EqualTo('password')]
     )
-    submit = SubmitField(_('Request Password Reset'))
+    submit = SubmitField(_l('Request Password Reset'))
