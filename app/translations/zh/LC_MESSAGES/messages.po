@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-02 13:59+0800\n"
+"POT-Creation-Date: 2018-10-02 14:31+0800\n"
 "PO-Revision-Date: 2018-10-02 13:59+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh\n"
@@ -86,38 +86,43 @@ msgstr "用户名或密码错误"
 msgid "Congratulations, You are now a registered user!"
 msgstr "恭喜，你已成功注册"
 
-#: app/routes.py:126
+#: app/routes.py:130
 msgid "Your changes have been saved."
 msgstr "修改成功"
 
-#: app/routes.py:139
+#: app/routes.py:143
 #, python-format
 msgid "User %(username)s not found."
 msgstr "没找到%(username)s"
 
-#: app/routes.py:142
+#: app/routes.py:146
 msgid "You can not follow yourself."
 msgstr "你不能关注你自己"
 
-#: app/routes.py:146
+#: app/routes.py:150
 #, python-format
 msgid "You are followwing %(username)s"
 msgstr "成功关注%(username)s"
 
-#: app/routes.py:156
+#: app/routes.py:160
 #, python-format
 msgid "User %(username)s is not found."
 msgstr "没找到%(username)s用户"
 
-#: app/routes.py:159
+#: app/routes.py:163
 msgid "You cannot unfollow yourself."
 msgstr "你不能取关你自己"
 
-#: app/routes.py:176
+#: app/routes.py:167
+#, python-format
+msgid "You success to unfollow %(username)s."
+msgstr "取消关注%(username)s成功"
+
+#: app/routes.py:180
 msgid "Check your email for the instructions to reset your password"
 msgstr "检查你的邮箱并从邮箱中的链接重置密码"
 
-#: app/routes.py:193
+#: app/routes.py:197
 msgid "Your password has been reset."
 msgstr "密码重置成功"
 
