@@ -112,10 +112,7 @@ def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
-    if str(get_locale()) == 'zh':
-        g.locale = 'zh-cn'
-    else:
-        g.locale = str(get_locale())
+    g.locale = str(get_locale())
 
 
 

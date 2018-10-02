@@ -32,6 +32,6 @@ def init(lang):
     """Initilize a new language."""
     if os.system('pybabel extract -F babel.cfg -k _l -o messages.pot .'):
         raise RuntimeError('Extract command failed')
-    if os.system('pytabel init -i messages.pot -d app/translates -l' + lang):
+    if os.system('pybabel init -i messages.pot -d app/translations -l' + lang):
         raise RuntimeError('init command faild')
     os.remove('messages.pot')
