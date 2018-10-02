@@ -1,4 +1,4 @@
-# Chinese (Simplified, China) translations for PROJECT.
+# Chinese translations for PROJECT.
 # Copyright (C) 2018 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-02 12:34+0800\n"
-"PO-Revision-Date: 2018-10-02 12:34+0800\n"
+"POT-Creation-Date: 2018-10-02 13:59+0800\n"
+"PO-Revision-Date: 2018-10-02 13:59+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: zh_Hans_CN\n"
-"Language-Team: zh_Hans_CN <LL@li.org>\n"
+"Language: zh\n"
+"Language-Team: zh <LL@li.org>\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -44,7 +44,7 @@ msgstr "邮箱"
 
 #: app/forms.py:23 app/forms.py:69
 msgid "Repeat Password"
-msgstr "重复密码"
+msgstr "重置密码"
 
 #: app/forms.py:25 app/templates/register.html:5
 msgid "Register"
@@ -52,11 +52,11 @@ msgstr "注册"
 
 #: app/forms.py:30 app/forms.py:51
 msgid "Please use a different username."
-msgstr "用户名已被注册，请重新输入"
+msgstr "用户名已被使用，请输入新的用户名"
 
 #: app/forms.py:35
 msgid "Please use a different email address."
-msgstr "邮箱已被注册，请重新输入"
+msgstr "邮箱已被注册，请输入新的邮箱"
 
 #: app/forms.py:40
 msgid "About me"
@@ -72,11 +72,11 @@ msgstr "说点什么吧"
 
 #: app/forms.py:63 app/forms.py:71
 msgid "Request Password Reset"
-msgstr "重置密码"
+msgstr "申请重置密码"
 
 #: app/routes.py:24
 msgid "Your post is now live!"
-msgstr "文章发表成功"
+msgstr "文章发布成功"
 
 #: app/routes.py:62
 msgid "Invalid username or password."
@@ -84,54 +84,54 @@ msgstr "用户名或密码错误"
 
 #: app/routes.py:89
 msgid "Congratulations, You are now a registered user!"
-msgstr "恭喜，您注册成功了，请登录"
+msgstr "恭喜，你已成功注册"
 
-#: app/routes.py:130
+#: app/routes.py:126
 msgid "Your changes have been saved."
-msgstr "资料修改成功"
+msgstr "修改成功"
 
-#: app/routes.py:143
+#: app/routes.py:139
 #, python-format
 msgid "User %(username)s not found."
-msgstr "没找到用户名 %(username)s"
+msgstr "没找到%(username)s"
 
-#: app/routes.py:146
+#: app/routes.py:142
 msgid "You can not follow yourself."
 msgstr "你不能关注你自己"
 
-#: app/routes.py:150
+#: app/routes.py:146
 #, python-format
 msgid "You are followwing %(username)s"
-msgstr "关注%(username)s成功"
+msgstr "成功关注%(username)s"
 
-#: app/routes.py:160
+#: app/routes.py:156
 #, python-format
 msgid "User %(username)s is not found."
-msgstr "没找到用户名 %(username)s"
+msgstr "没找到%(username)s用户"
 
-#: app/routes.py:163
+#: app/routes.py:159
 msgid "You cannot unfollow yourself."
 msgstr "你不能取关你自己"
 
-#: app/routes.py:180
+#: app/routes.py:176
 msgid "Check your email for the instructions to reset your password"
-msgstr "请查看您的邮箱，点击邮箱中的链接重置密码"
+msgstr "检查你的邮箱并从邮箱中的链接重置密码"
 
-#: app/routes.py:197
+#: app/routes.py:193
 msgid "Your password has been reset."
 msgstr "密码重置成功"
 
 #: app/templates/404.html:4
 msgid "File Not Found!"
-msgstr "文件没被找到"
+msgstr "没找到您需要的页面"
 
 #: app/templates/500.html:4
 msgid "An unexpected error has occurred"
-msgstr "发生了一点小意外"
+msgstr "喔噢，发生了一点小意外"
 
 #: app/templates/500.html:5
 msgid "The administrator has been notified.Sorry for the inconveniece!"
-msgstr "管理员很快就会解决这个问题"
+msgstr "已经通知管理员，很快能解决这个问题啦(一周内)"
 
 #: app/templates/_post.html:14
 #, python-format
@@ -140,7 +140,7 @@ msgstr "%(username)s 发布 %(when)s"
 
 #: app/templates/base.html:22
 msgid "Microblog"
-msgstr ""
+msgstr "橙子站"
 
 #: app/templates/base.html:26
 msgid "Home"
@@ -164,7 +164,7 @@ msgstr "注销"
 
 #: app/templates/edit_profile.html:5
 msgid "Edit profile"
-msgstr "编辑你的资料"
+msgstr "编辑个人资料"
 
 #: app/templates/index.html:5
 msgid "Hi"
@@ -172,11 +172,11 @@ msgstr "你好"
 
 #: app/templates/index.html:19 app/templates/user.html:29
 msgid "Newer posts"
-msgstr "前一页"
+msgstr "上一页"
 
 #: app/templates/index.html:24 app/templates/user.html:34
 msgid "Older posts"
-msgstr "后一页"
+msgstr "下一页"
 
 #: app/templates/login.html:11
 msgid "New User?"
@@ -192,11 +192,11 @@ msgstr "忘记密码？"
 
 #: app/templates/login.html:14
 msgid "Click to Reset It"
-msgstr "点击重置"
+msgstr "点击重置密码"
 
 #: app/templates/reset_password.html:5
 msgid "Reset Your Password"
-msgstr "重置您的密码"
+msgstr "重置你的密码"
 
 #: app/templates/reset_password_request.html:5
 msgid "Reset Password"
@@ -208,7 +208,7 @@ msgstr "用户"
 
 #: app/templates/user.html:10
 msgid "Last seen on"
-msgstr "最后登录时间"
+msgstr "最后登录"
 
 #: app/templates/user.html:11
 msgid "followers"
@@ -229,5 +229,4 @@ msgstr "关注"
 #: app/templates/user.html:17
 msgid "Unfollow"
 msgstr "取消关注"
-
 
