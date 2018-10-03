@@ -1,6 +1,6 @@
 import requests
 import execjs
-# from flask_login import login_required
+from flask_login import login_required
 import re
 import json
 
@@ -15,7 +15,7 @@ def get_js_result(tcontent, token = "token"):
     return execjs.compile(htmlstr).call(token, tcontent)
 
 
-# @login.required
+@login.required
 def translate(tcontent, fromLanguage, toLanguage):
     translateToken = 112396.471633
     url = "https://translate.google.cn/translate_a/single?client=t&sl={}&tl={}&hl=zh-CN&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=ss&dt=t&ie=UTF-8&oe=UTF-8&source=btn&ssel=0&tsel=0&kc=0&tk={}&q={}".format(fromLanguage, toLanguage, get_js_result(tcontent), tcontent)
@@ -38,4 +38,4 @@ def translate(tcontent, fromLanguage, toLanguage):
 
 
 if __name__ == "__main__":
-    print(translate("黄花鱼胶。迟呢买点煲鸡。或回家湛江买。", "zh-CN", "en"))
+    print(translate("黄花鱼胶。迟呢买点煲鸡。或回家买。", "zh-CN", "en"))
