@@ -1,4 +1,4 @@
-from flask import render_template, flash, redirect, url_for, get_flashed_messages, g
+from flask import render_template, flash, redirect, url_for, get_flashed_messages, g, jsonify
 from app import app
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, PostForm, ResetPasswordRequestForm, ResetPasswordForm
 from flask_login import current_user, login_user, logout_user, login_required
@@ -21,7 +21,9 @@ def index():
     form = PostForm()
     if form.validate_on_submit():
         language = guess_language(form.post.data)
-        if language == "UNKNOWN" or len(language) > 5:
+        if language == 'zh':
+            language = 'zh-CN'
+        if language == 'UNKNOWN' or len(language) > 5:
             language = ''
         post = Post(body = form.post.data, author = current_user, language = language)
         db.session.add(post)
@@ -119,8 +121,9 @@ def before_request():
         db.session.commit()
     if str(get_locale()) == 'zh':
         g.locale = 'zh_CN'
+        g.locale1 = 'zh-CN'
     else:
-        g.locale = str(get_locale())
+        g.locale = g.locale1 = str(get_locale())
 
 
 
