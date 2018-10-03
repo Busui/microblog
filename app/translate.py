@@ -22,7 +22,7 @@ def translate(tcontent, fromLanguage, toLanguage):
     response = requests.get(url, headers = {"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36", 
                                             "cookie": "_ga=GA1.3.941415922.1536839914; _gid=GA1.3.560171090.1538451750; 1P_JAR=2018-10-3-12; NID=140=vQcXHsvblL5DAoF2ndZZZmOoxOQpm0LbdHWv5F7mHlj8ChcfFFfP122L4h4gcCaVqv5Fl2HGaVBrLowpAsA1yim13PgjzvG4HLserRHZEjhC0vKJDJmJ0AiX-vsXAxuXPoRC3fP891jSRTj2HQ", 
                                             "content-type": "application/json; charset=UTF-8", "accept": "*/*"})
-    
+                                               
     if response.status_code != 200:
         return _('Error: the translation service failed.')
 
