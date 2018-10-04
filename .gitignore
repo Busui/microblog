@@ -43,4 +43,4 @@ microblog.log*
 .env
 
 # vscode settings
-.vscode
+/.vscode
