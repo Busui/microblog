@@ -38,4 +38,9 @@ nosetests.xml
 venv
 app.db
 microblog.log*
+
+# Environment Variables
 .env
+
+# vscode settings
+.vscode
