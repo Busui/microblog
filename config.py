@@ -20,3 +20,6 @@ class Config(object):
     ADMINS = ['wuqingcong@gmail.com']
     POSTS_PER_PAGE = 3
     LANGUAGES = ['zh', 'en']
+
+    # Elasticsearch conf
+    ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
