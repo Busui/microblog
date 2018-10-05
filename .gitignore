@@ -44,3 +44,5 @@ microblog.log*
 
 # vscode settings
 .vscode/
+
+translate.js
