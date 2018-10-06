@@ -9,14 +9,18 @@ from app.main.forms import EditProfileForm, PostForm
 from app.models import User, Post
 from app.translate import translate
 from app.main import bp
+from app.main.forms import SearchForm
 
 
-
+# 这里的g中的变量不是在用户登录的整个期间都生存，而是在
+# 每个请求之前被创建，请求结束后就被清除了。而且对于同一个
+# 用户的不同请求，g们都是相互独立的. Of cause, g among differenct User is also independence.
 @bp.before_request
 def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
+        g.search_form = SearchForm()
     if str(get_locale()) == 'zh':
         g.locale = 'zh_CN'
         g.locale1 = 'zh-CN'
@@ -141,3 +145,19 @@ def translate_text():
     return jsonify({'text': translate(request.form['text'],
                                       request.form['source_language'],
                                       request.form['dest_language'])})
+
+
+
+@bp.route('/search')                                      
+@login_required
+def search():
+    if not g.search_form.validate():
+        return redirect(url_for('main.explore'))
+    page = request.args.get('page', 1, int)
+    posts, total = Post.search(g.search_form.a.data, page, current_app.config['POSTS_PER_PAGE'])
+    next_url = url_for('main.search', q = g.search_form.q.data, page = page + 1) \
+                if total > page * current_app.config['POSTS_PER_PAGE'] else None
+    prev_url = url_for('main.search', q = g.search_form.q.data, page = page - 1) \
+                if page > 1 else None
+    return render_template('search.html', title = _('Search'), posts = posts, 
+                            next_url = next_url, prev_url = prev_url)
