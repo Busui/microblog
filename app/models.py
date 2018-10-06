@@ -106,7 +106,6 @@ class SearchableMixin(object):
             'delete': list(session.deleted)
         }
 
- 
     @classmethod
     def after_commit(cls, session):
         for obj in session._changes['add']:
@@ -120,7 +119,6 @@ class SearchableMixin(object):
                 remove_from_index(obj.__tablename__.lower(), obj)
         session._changs = None
 
- 
     @classmethod
     def reindex(cls):
         for obj in cls.query:
