@@ -20,10 +20,10 @@ def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
-        g.search_form = SearchForm()
+        # g.search_form = SearchForm()
     if str(get_locale()) == 'zh':
         g.locale = 'zh_CN'
-        g.locale1 = 'zh-CN'
+        # g.locale1 = 'zh-CN'
     else:
         g.locale = g.locale1 = str(get_locale())
 

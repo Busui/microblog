@@ -130,7 +130,7 @@ db.event.listen(db.session, 'after_commit', SearchableMixin.after_commit)
 
 
 class Post(SearchableMixin, db.Model):
-    __tablename__ = 'Post'
+    # __tablename__ = 'Post'
     __searchable__ = ['body']
     id = db.Column(db.Integer, primary_key = True)
     body = db.Column(db.String(140))
