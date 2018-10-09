@@ -46,3 +46,4 @@ microblog.log*
 .vscode/
 
 translate.js
+certs/
