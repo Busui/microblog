@@ -81,7 +81,7 @@ class User(UserMixin, db.Model):
         return Message.query.filter_by(recipient = self).filter(
             Message.timestamp > last_read_time
         ).count()
-        
+
     @staticmethod
     def verify_reset_password_token(token):
         try:
