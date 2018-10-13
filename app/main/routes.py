@@ -179,7 +179,7 @@ def send_message(recipient):
     form = MessageForm()
     if form.validate_on_submit():
         msg = Message(author = current_user, recipient = user, 
-                      body = from.message.data)
+                      body = form.message.data)
         db.session.add(msg)
         db.session.commit()
         flash(_('Your message has been sent.'))
