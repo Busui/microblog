@@ -10,6 +10,8 @@ from app.models import User, Post
 from app.translate import translate
 from app.main import bp
 from app.main.forms import SearchForm
+from app.main.forms import MessageForm
+from app.models import Message
 
 
 # 这里的g中的变量不是在用户登录的整个期间都生存，而是在
@@ -168,3 +170,19 @@ def search():
 def user_pupup(username):
     user = User.query.filter_by(username = username).first_or_404()
     return render_template('user_popup.html', user=user)
+
+
+@bp.route('/send_message/<recipient>', methods=['GET', 'POST'])
+@login_required
+def send_message(recipient):
+    user = User.query.filter_by(username = recipient).first_or_404()
+    form = MessageForm()
+    if form.validate_on_submit():
+        msg = Message(author = current_user, recipient = user, 
+                      body = from.message.data)
+        db.session.add(msg)
+        db.session.commit()
+        flash(_('Your message has been sent.'))
+        return redirect(url_for('main.user', username = recipient))
+    return render_template('send_message.html', title=_('Send Message'),
+                          form=form, recipient=recipient)     
