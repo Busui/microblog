@@ -180,6 +180,7 @@ def send_message(recipient):
     if form.validate_on_submit():
         msg = Message(author = current_user, recipient = user, 
                       body = form.message.data)
+        user.add_notification('unread_message_count', user.new_messages())
         db.session.add(msg)
         db.session.commit()
         flash(_('Your message has been sent.'))
@@ -192,6 +193,7 @@ def send_message(recipient):
 @login_required
 def messages():
     current_user.last_message_read_time = datetime.utcnow()
+    current_user.add_notification('unread_message_count', 0)
     db.session.commit()
     page = request.args.get('page', 1, type=int)
     messages = current_user.messages_received.order_by(
