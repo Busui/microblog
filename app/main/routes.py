@@ -11,7 +11,7 @@ from app.translate import translate
 from app.main import bp
 from app.main.forms import SearchForm
 from app.main.forms import MessageForm
-from app.models import Message
+from app.models import Message, Notification
 
 
 # 这里的g中的变量不是在用户登录的整个期间都生存，而是在
@@ -207,3 +207,17 @@ def messages():
                 if messages.has_prev else None
     return render_template('messages.html', messages=messages.items, 
                             next_url=next_url, prev_url=prev_url)
+
+
+@bp.route('/notifications')
+@login_required
+def notifications():
+    since = request.args.get('since', 0.0, type=float)
+    notifications = current_user.notifications.filter(
+        Notification.timestamp > since
+    ).order_by(Notification.timestamp.asc())
+    return jsonify([{
+        'name': n.name,
+        'data': n.get_data(),
+        'timestamp': n.timestamp
+    } for n in notifications])
