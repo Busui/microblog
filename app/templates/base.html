@@ -42,7 +42,11 @@
                                 {{ _('Messages') }}
                                 {% set new_messages = current_user.new_messages() %}
                                 {% if new_messages %}
-                                    <span class="badge">{{ new_messages }}</span>
+                                    <span id="message_count" class="badge" 
+                                          style="visibility: {% if new_messages %}visible
+                                                            {% else %}hidden {% endif %};">
+                                        {{ new_messages }}
+                                    </span>
                                 {% endif %}
                             </a>
                         </li>
@@ -130,5 +134,9 @@
                     }
                 );
             })
+            function set_message_count(n) {
+                $('#message_count').text(n);
+                $('#message_count').css('visibility', n ? 'visible' : 'hidden');
+            }
     </script>
 {% endblock %}
