@@ -16,7 +16,7 @@
                 {{ _('%(username)s said %(when)s',
                     username=user_link, when=moment(post.timestamp).fromNow()) }}
                 <br>
-                <span id="post{{ post.id }}">{{ post.body }}</span>
+                <span id="post{{ post.id }}">{% filter markdown %}{{ post.body }}{% endfilter %}</span>
                 {% if 1 == 2 %}
                 <br><br>
                 <span id="translation{{ post.id }}">
