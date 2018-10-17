@@ -25,7 +25,7 @@ mail = Mail()
 bootstrap = Bootstrap()
 moment = Moment()
 babel = Babel()
-markdown = Markdown()
+
 
 
 def create_app(config_class = Config):
@@ -42,7 +42,8 @@ def create_app(config_class = Config):
     bootstrap.init_app(app)
     moment.init_app(app)
     babel.init_app(app)
-    markdown.init_app(app)
+    # markdown.init_app(app)
+    Markdown(app)
 
 
     from app.errors import bp as errors_bp
