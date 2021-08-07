@@ -47,3 +47,5 @@ microblog.log*
 
 translate.js
 certs/
+
+.idea
